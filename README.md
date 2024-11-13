@@ -85,15 +85,3 @@ Stores the details of each product within an order.
    SET stock_quantity = stock_quantity - 1
    WHERE product_id = 1;
    ```
-
-## Installation
-
-1. **Create a new database**:
-   ```sql
-   CREATE DATABASE ecommerce_store;
-   USE ecommerce_store;
-   ```
-
-2. **Create the tables** using the SQL code provided above.
-
-3. **Insert sample data** to test the database with sample customers, products, and orders.
