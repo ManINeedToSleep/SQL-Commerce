@@ -85,3 +85,20 @@ Stores the details of each product within an order.
    SET stock_quantity = stock_quantity - 1
    WHERE product_id = 1;
    ```
+
+### Reflection
+
+1. How do primary and foreign keys help maintain data integrity?
+   A : Primary keys are like the unique ID cards for each record, so there are no duplicates. Foreign keys connect tables and make sure the data matches up properly, like linking an order to a specific customer. It keeps everything tidy and consistent.
+
+2. What insights can be gained by joining multiple tables?
+   A : Joins let you mix and match data from different tables to see the bigger picture.
+
+3. How can aggregate functions summarize data?
+   A : Aggregate functions are the shortcuts for getting the big numbers, like total sales (SUM), average order size (AVG), or the number of customers (COUNT).
+
+4. What types of analyses are enabled by date functions?
+   A : With date functions, you can look at trends over time. Stuff like “When are we busiest?” and “What’s the monthly revenue?”.
+
+5. How might you extend this database for additional e-commerce features?
+   A : Maybe add a categories table to organize products better or a reviews table so customers can leave feedback.
