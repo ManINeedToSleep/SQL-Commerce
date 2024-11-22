@@ -199,9 +199,9 @@ This guide will walk you through the steps to set up your e-commerce database an
      ```plaintext
         DB_HOST=localhost
         DB_PORT=3306
-        DB_NAME=ecommerce_store
+        DB_NAME=database_name
         DB_USER=root
-        DB_PASSWORD=ManECommerceNeedOSHA
+        DB_PASSWORD=database_password
         PORT=3000
      ```
 
