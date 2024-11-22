@@ -145,7 +145,7 @@ This guide will walk you through the steps to set up your e-commerce database an
 
 ### **a. Install SQL Server**
 1. **Download and Install SQL Server**:
-   - Go to the [SQL Server Downloads page](https://www.microsoft.com/en-us/sql-server/sql-server-downloads).
+   - Go to the [SQL Server Downloads page]([https://www.microsoft.com/en-us/sql-server/sql-server-downloads](https://dev.mysql.com/downloads/installer/)).
    - Choose **SQL Server Community Edition** (free for development).
    - Run the installer and select **Full Installation**.
 
