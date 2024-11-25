@@ -1,41 +1,26 @@
-import { Sequelize, DataTypes } from 'sequelize';
-import dotenv from 'dotenv';
+import sequelize from './db.js'; // Import the Sequelize connection
+import Student from './student.js'; // Import the Student model
 
-dotenv.config();
-
-const sequelize = new Sequelize(
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASSWORD,
-    {
-        host: process.env.DB_HOST,
-        dialect: 'mysql',
-        port: process.env.DB_PORT,
-    }
-);
-
-const Student = sequelize.define('Student', {
-    name: { type: DataTypes.STRING, allowNull: false },
-    age: { type: DataTypes.INTEGER, allowNull: false },
-    class: { type: DataTypes.STRING, allowNull: true },
-});
-
-const testConnection = async () => {
+const main = async () => {
     try {
+        // Test the connection
         await sequelize.authenticate();
-        console.log('Connection has been established successfully.');
-        await sequelize.sync();
-        console.log('Database synchronized successfully.');
+        console.log('Database connected successfully.');
 
-        const newStudent = await Student.create({
-            name: 'John Doe',
-            age: 20,
-            class: 'Physics',
-        });
-        console.log('Student created:', newStudent.toJSON());
+        // Sync the database (creates tables if they don't exist)
+        await sequelize.sync({ force: false });
+        console.log('Database synced.');
+
+        // Example: Create a new student
+        const newStudent = await Student.create({ name: 'John Doe', age: 18, class: '12-A' });
+        console.log('New student created:', newStudent.toJSON());
     } catch (error) {
-        console.error('Unable to connect to the database:', error);
+        console.error('Error connecting to the database:', error);
+    } finally {
+        // Close the connection
+        await sequelize.close();
     }
 };
 
-testConnection();
+// Run the main function
+main();
