@@ -1,5 +1,7 @@
-const { Sequelize, DataTypes } = require('sequelize');
-require('dotenv').config();
+import { Sequelize, DataTypes } from 'sequelize';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const sequelize = new Sequelize(
     process.env.DB_NAME,
@@ -12,13 +14,11 @@ const sequelize = new Sequelize(
     }
 );
 
-
 const Student = sequelize.define('Student', {
     name: { type: DataTypes.STRING, allowNull: false },
     age: { type: DataTypes.INTEGER, allowNull: false },
-    class: { type: DataTypes.STRING, allowNull: true }
+    class: { type: DataTypes.STRING, allowNull: true },
 });
-
 
 const testConnection = async () => {
     try {
@@ -33,12 +33,9 @@ const testConnection = async () => {
             class: 'Physics',
         });
         console.log('Student created:', newStudent.toJSON());
-
-        } catch (error) {
+    } catch (error) {
         console.error('Unable to connect to the database:', error);
     }
 };
 
 testConnection();
-
-
